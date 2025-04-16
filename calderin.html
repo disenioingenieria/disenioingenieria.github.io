@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Calderín</title>
+</head>
+<body>
+  <header class="cabecera-uno-fontaneria">
+    <h1>Diseño y Cálculo de Calderín Hidroneumático conforme al CTE y a UNE-149202</h1>
+  </header>
+  <header class="cabecera-dos-fontaneria">
+      <img src="img/logo-black-fondo-color-removebg-preview.png" width="42" height="42" alt="logo">
+    <nav class="menu menu-calderin">
+      <ul>
+        <li><a href="fontaneria.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg> Volver a Fontaneria&nbsp;&nbsp;</a></li>
+        
+        <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg> Volver a Engineering</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+      <div class="a-pantalla">
+        <div class="container-datos-a-pantalla">
+        <h2 class="descripcion-seleccion"></h2>
+        <h4 class="nombre-de-la-obra-a-pantalla"></h4>
+        <!-- <input type="text" class="nombre-de-la-obra none" placeholder="Pon el nombre de la obra"> -->
+        <p id="caudal-arranque-a-pantalla"></p>
+        <p id="presion-arranque-a-pantalla"></p>
+        <p id="presion-diferencial-a-pantalla" class="none"></p>        
+        <p id="caudal-paro-a-pantalla"></p>
+        <span id="volumen-calderin"></span>
+        <p id="volumen-calderin-a-pantalla"></p>
+        <span id="volumen-comercial-calderin"></span>
+        <p id="volumen-comercial-calderin-a-pantalla"></p>
+        <span id="presion-trabajo-calderin"></span>
+        <p id="presion-trabajo-calderin-a-pantalla"></p>
+        <span id="potencia-motor"></span>
+        <p id="potencia-comercial-motor-a-pantalla"></p>
+        <span id="numero-arranques"></span>
+        <p id="numero-arranques-a-pantalla"></p>
+        <p id="numero-bombas-a-pantalla"></p>
+
+        <!-- <p id="potencia-comercial-motor">cebollon</p> -->
+      </div>
+        <div class="container-calcular-de-nuevo">
+        <button class="calcular-de-nuevo" id="calcular-de-nuevo" type="reset">Realizar otro diseño</button>
+        <button class="calcular-de-nuevo" id="volver-a-fontaneria" type="">Volver a fontaneria</button>
+        <div class="imprimir">
+            <a class="impresora imprimir"><svg class="imprimir" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+              <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+              <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+              </svg></a></li>
+        </div>
+      </div>
+      </div>
+    </div> 
+    <article>
+      <form class="form-calderin" action=""><!--Hace que el formulario no refresque la página  onsubmit="event.preventDefault()" -->
+        <legend class="legend">Introduce los valores del grupo a presión</legend>
+        <!-- <input class="entra-un-dato-calderin" type="text" placeholder="Introduce la obra"> -->
+          <div class="label-options">
+            <label for="opciones">Tipo de grupo</label>      
+            <select name="opciones" id="opciones">
+          </div>
+        <option></option>
+        <option id="velocidad-variable-variador-unico" value="0">Velocidad Variable, Variador Único</option>
+        <option id="velocidad-variable-variador-por-bomba" value="1">Velocidad Variable Variador por Bomba</option>
+        <option id="todo-nada" value="2">Convencional, sin variador</option>
+        </select>
+      <div class="container-entra-un-dato opacity">
+        <input class="entra-un-dato-calderin nombre-de-la-obra" type="text" placeholder="Nombre de la instalación">
+
+        <label class="entra-un-dato-calderin" for="caudal">Caudal total del grupo</label>
+        <input class="entra-un-dato-calderin" id="caudal" type="number" name="caudal" min=".1" placeholder="lts/h." step=".1" title="Sólo acepta números y el . como separador de decimales, máximo un decimal" pattern="^(\d{1}\.)?(\d+\.?)+(,\d{2})?$" required>
+        <label class="entra-un-dato-calderin" for="presion-arranque">Presión de arranque</label>
+        <input class="entra-un-dato-calderin" id="presion-arranque" type="number" name="presión de arranque" min=".1" step=".1" max="40" pattern="^(\d{1}\.)?(\d+\.?)+(,\d{2})?$" placeholder="Kg/cm2." 
+        step="0.1" title="Sólo acepta números y el . como separador de decimales, máximo un decimal" required>
+        <label class="entra-un-dato-calderin presion-diferencial" for="presion-diferencial">Presion diferencial (Paro-Arranque)</label>
+        <!-- Según establece el Código Técnico de la Edificación, en el apartado 4.5.2.3 del documento DB-HS4. la presión diferencial deber ser de 2 a 3 Kg/cm2, una barbaridad-->
+        <input class="entra-un-dato-calderin presion-diferencial" id="presion-diferencial" type="number" name="presion diferencial" min="1.5" max="3" step=".1" pattern="^(\d{1}\.)?(\d+\.?)+(,\d{2})?$" placeholder="Kg/cm2." title="Sólo acepta números y el . como separador de decimales, máximo un decimal" step="0.1" required>
+        <label class="entra-un-dato-calderin" for="numero-bombas">Número de bombas</label>
+        <input class="entra-un-dato-calderin" id="numero-bombas" type="number" name="bombas" min="1" max="10" placeholder="Uds." title="Sólo acepta números enteros" pattern="/[^0-9]/g" step="0" required>
+      </div>
+      <div class="container-valida-datos opacity">
+        <!-- <button class="valida-datos-calderin valida-presion-diferencial" type="button">Valida presion diferencial</button> -->
+        <button class="valida-datos-calderin confirma-datos-calderin" type="submit">Confirma datos</button>     <!--si en vez de button pongo submit me reinicializa le escritorio -->
+      </div>
+      </form>
+    </article>
+  </main>
+  <footer class="footer">
+    <h2 class="titulares">Sticky Footer</h2>
+  </footer>
+    <script src="js/index_calderin.js" type="module"></script>
+</body>
+</html>

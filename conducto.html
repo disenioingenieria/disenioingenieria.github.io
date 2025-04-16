@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Conductos</title>
+</head>
+<body>
+  <header class="cabecera-uno-fontaneria">
+    <h1>DISEÑO Y CALCULO DE CONDUCTOS</h1>
+    <p class="colebrookMinusculas">
+      1/&#8730;&zeta; = -2 log [&epsilon;/D/3,71 + 2,51/Re&#8730;&zeta;]
+    </p>
+  </header>
+  <header class="cabecera-dos-fontaneria">
+      <img src="img/logo-black-fondo-color-removebg-preview.png" width="42" height="42" alt="logo">
+    <nav class="menu menu-calderin">
+      <ul>
+        <li><a href="fontaneria.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg> Volver a Fontaneria&nbsp;&nbsp;</a></li>
+        <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg> Volver a Engineering</a></li>
+      </ul>
+    </nav>
+  </header> 
+  <main>
+    <section class="conducto-selecciona">
+      <div id="selecciona-tipo-conducto">
+      <h4>Introduce los datos para el diseño</h4>
+      <h4>Pulsa para la clase de conducto e introduce la tª del aire, si no, adoptaremos 21ºC.</h4>
+
+      <input type="text" name="temperaturaDelAire" id="temperatura-del-aire" placeholder="Tª del Aire"/>
+      <span id="errorMsg" style="color: red;"></span>
+      <span id="ultimo-boton"></span>
+      <!--Detecta el tipo de conducto seleccionado-->
+      <button id="conducto-circular" value="conducto-circular">Conducto circular</button>
+      <button id="conducto-rectangular" value="conducto-rectangular">Conducto rectangular</button>
+      <button id="conducto-oval" value="conducto-oval">Conducto oval</button>
+      </div>
+        <div class="tipo-conducto-circular none">
+          <h4 id="texto-tipo-conducto-circular">Introduce el material del conducto circular</h4>
+          <button id="conducto-circular-pvc">PVC</button>
+          <button id="conducto-circular-chapa">Galvanizado</button>
+          <button id="conducto-circular-inox">Inoxidable</button>
+          <button id="conducto-circular-flexible">Flexible</button>
+        </div>
+        <div class="tipo-conducto-rectangular none">
+          <h4 id="texto-tipo-conducto-rectangular">Introduce el material del conducto rectangular</h4>
+          <button id="conducto-rectangular-pvc">PVC</button>
+          <button id="conducto-rectangular-galvanizado">Galvanizado</button>
+          <button id="conducto-rectangular-inoxidable">Inoxidable</button>
+          <button id="conducto-rectangular-climaver">Tipo Climaver</button>
+          <button id="conducto-rectangular-climaver-plus">Tipo Climaver Plus</button>
+          <button id="conducto-rectangular-climaver-neto">Tipo Climaver Neto</button>
+        </div>
+        <div class="tipo-conducto-oval none">
+          <h4 id="texto-tipo-conducto-oval">Introduce el material del conducto oval</h4>
+          <button id="conducto-oval-galvanizado">Galvanizado</button>
+          <button id="conducto-oval-inoxidable">Inoxidable</button>
+          <button id="conducto-oval-aluminio">Aluminio</button>
+        </div>
+    </section>  
+    <section>
+      <form class="form-conducto none valida-conducto" action=""><!-- onsubmit="event.preventDefault()"" -->
+        
+        <legend class="texto-conducto-pvc none">Conducto circular de PVC, introduce el diámetro nominal en mm. o deja que el programa lo seleccione en función de la velocidad y el caudal introducidos.</legend>
+        <legend class="texto-diametros-conducto-pvc none">Diámetros nominales: 16-20-25-32-40-50-63-75-90-100-110-120-125-140-160-180-200-250-315-400-500-630-710-800-900-1000-1100-1200</legend>
+
+        <legend class="texto-conducto-chapa none">Conducto circular de Chapa Galvanizada, introduce el diámetro nominal en mm. o deja que el programa lo seleccione en función de la velocidad y el caudal introducidos.</legend>
+        <legend class="texto-diametros-conducto-chapa none">Diámetros nominales: 80-100-125-135-150-160-175-200-225-250-275-300-315-350-355-400-450-500-550-600-630-650-700-710-750-800-850-900-950-1000-1050-1100-1120-1150-1200-1250-1300-1400-1500-1600-1800-2000</legend>
+
+        <legend class="texto-conducto-inox none">Conducto circular Inoxidable, introduce el diámetro nominal en mm. o deja que el programa lo seleccione en función de la velocidad y el caudal introducidos.</legend>
+        <legend class="texto-diametros-conducto-inox none">Diámetros nominales: 80-100-125-135-150-160-175-200-225-250-275-300-315-350-355-400-450-500-550-600-630-650-700-710-750-800-850-900-950-1000-1050-1100-1120-1150-1200-1250-1300-1400-1500-1600</legend>
+
+        <legend class="texto-conducto-flexible none">Conducto circular flexible, introduce el diámetro nominal en mm. o deja que el programa lo seleccione en función de la velocidad y el caudal introducidos.</legend>
+        <legend class="texto-diametros-conducto-flexible none">Diámetros nominales: 82-102-127-152-160-180-203-229-254-305-315-356-406-457-508-557-630</legend>
+
+        <legend class="texto-conducto-rectangular-pvc none">Conducto rectangular de PVC, selecciona la sección del conducto, introduce caudal y la velocidad, el programa calculará la velocidad real a la que circula ese caudal por la sección introducida, secciones normalizadas de varios fabricantes: (40x100, 55x110, 55x220, 60x200, 90x170, 90x180)</legend>
+
+        <legend class="texto-conducto-rectangular-galvanizado none">Conducto rectangular de chapa galvanizada, puedes introducir un lado para limitar la altura del conducto, los dos lados para comprobar velocidad y caida de presión en ese tramo. El diseño del tramo se realizará teniendo en cuenta que la relación entre el lado mayor y el lado menor será menor o igual que 7, por motivos económicos. Las dimensiones normalizadas para los tramos serán siempre múltiplos de 50</legend>
+        
+        <legend class="texto-conducto-rectangular-inoxidable none">Conducto rectangular inoxidable, puedes introducir un lado para limitar la altura del conducto, los dos lados para comprobar velocidad y caida de presión en ese tramo. El diseño del tramo se realizará teniendo en cuenta que la relación entre el lado mayor y el lado menor será menor o igual que 7, por motivos económicos. Las dimensiones normalizadas para los tramos serán siempre múltiplos de 50</legend>
+
+        <legend class="texto-conducto-rectangular-climaver none">Conducto rectangular de fibra de vidrio tipo climaver, puedes introducir un lado para limitar la altura del conducto, los dos lados para comprobar velocidad y caida de presión en ese tramo. El diseño del tramo se realizará teniendo en cuenta que la relación entre el lado mayor y el lado menor será menor o igual que 7, por motivos económicos. Las dimensiones normalizadas para los tramos serán siempre múltiplos de 50</legend>
+
+        <legend class="texto-conducto-rectangular-climaver-plus none">Conducto rectangular de fibra de vidrio tipo climaver Plus, puedes introducir un lado para limitar la altura del conducto, los dos lados para comprobar velocidad y caida de presión en ese tramo. El diseño del tramo se realizará teniendo en cuenta que la relación entre el lado mayor y el lado menor será menor o igual que 7, por motivos económicos. Las dimensiones normalizadas para los tramos serán siempre múltiplos de 50</legend>
+
+        <legend class="texto-conducto-rectangular-climaver-neto none">Conducto rectangular de fibra de vidrio tipo climaver Neto , puedes introducir un lado para limitar la altura del conducto, los dos lados para comprobar velocidad y caida de presión en ese tramo. El diseño del tramo se realizará teniendo en cuenta que la relación entre el lado mayor y el lado menor será menor o igual que 7, por motivos económicos. Las dimensiones normalizadas para los tramos serán siempre múltiplos de 50</legend>
+
+        <legend class="texto-conducto-oval none">Conducto oval de chapa galvanizada, puedes introducir un lado para limitar la altura del conducto, los dos lados para comprobar velocidad y caida de presión en ese tramo. El diseño del tramo se realizará teniendo en cuenta que la relación entre el lado mayor y el lado menor será menor o igual que 7, por motivos económicos. Las dimensiones normalizadas para los tramos serán siempre múltiplos de 50</legend>
+
+      <div class="container-entra-un-dato container-entra-un-dato-conducto">
+        <input class="entra-un-dato-calderin entra-un-dato-conducto nombre-de-la-obra" type="text" placeholder="Nombre de la instalación">
+        <input class="numero-de-tramo entra-un-dato-conducto" type="number" name="numero de tramo" min="1" placeholder="Tramo Nº" step="1" tittle="Sólo acepta números enteros" pattern="^[0-9]\\d*$">
+        <input class="caudal entra-un-dato-conducto" id="caudal" type="number" name="caudal" min=".1" placeholder="Caudal en m3/h" step=".1" title="Sólo acepta números y el . como separador de decimales, máximo un decimal" pattern="^(\d{1}\.)?(\d+\.?)+(,\d{2})?$" required>
+        <input class="longitud entra-un-dato-conducto" id="longitud" type="number" name="longitud" min=".1" placeholder="Longitud en mts." step=".1" title="Sólo acepta números y el . como separador de decimales, máximo un decimal" pattern="^(\d{1}\.)?(\d+\.?)+(,\d{2})?$" required>
+        <input class="velocidad entra-un-dato-conducto" id="velocidad" type="number" name="velocidad" min=".1" step=".1" placeholder="Velocidad en m/sg." title="Sólo acepta números y el . como separador de decimales, máximo un decimal" pattern="^(\d{1}\.)?(\d+\.?)+(,\d{2})?$" step="0" required>
+       
+        <input class="diametro-pvc entra-un-dato-conducto" id="diametro-pvc" type="text" name="diametro-pvc" placeholder="diámetro mm." title="Sólo acepta diámetros normalizados" pattern="^(16|20|25|32|40|50|63|75|90|100|110|120|125|140|150|160|180|200|250|315|400|450|500|630|710|800|900|1000|1100|1200)$">
+        <input class="diametro-chapa entra-un-dato-conducto" id="diametro-chapa" type="text" name="diametro-chapa" placeholder="diámetro mm." title="Sólo acepta diámetros normalizados" pattern="^(80|100|125|135|150|160|175|200|225|250|275|300|315|350|355|400|450|500|550|600|630|650|700|710|750|800|850|900|950|1000|1050|1100|1120|1150|1200|1250|1300|1400|1500|1600|1800|2000)$">
+        <input class="diametro-inox entra-un-dato-conducto" id="diametro-inox" type="text" name="diametro-inox" placeholder="diámetro mm." title="Sólo acepta diámetros normalizados" pattern="^(80|100|125|135|150|160|175|200|225|250|275|300|315|350|355|400|450|500|550|600|630|650|700|710|750|800|850|900|950|1000|1050|1100|1120|1150|1200|1250|1300|1400|1500|1600)$">
+        <input class="diametro-flexible entra-un-dato-conducto" id="diametro-flexible" type="text" name="diametro-flexible" placeholder="diámetro mm." title="Sólo acepta diámetros normalizados" pattern="^(82|102|127|152|160|180|203|229|254|305|315|356|406|457|508|557|630)$">
+        <!-- A partir de aquí, los rectangulares -->
+        
+        <input class="seccion-conducto-pvc entra-un-dato-conducto" id="seccion-conducto-pvc" type="text" name="seccion-conducto-pvc" placeholder="Secciones mm." title="Sólo acepta secciones normalizadas">
+        <p id="mensaje" style="color:red"></p>
+        <input class="lado-menor entra-un-dato-conducto" id="lado-menor" type="text" name="lado-menor" placeholder="lado menor mm." title="Sólo acepta dimensiones normalizadas">
+        <p id="mensaje-menor" style="color:red"></p>
+        <input class="lado-mayor entra-un-dato-conducto" id="lado-mayor" type="text" name="lado-mayor" placeholder="lado mayor mm." title="Sólo acepta dimensiones normalizadas">
+        <p id="mensaje-mayor" style="color:red"></p>
+
+        <input class="codos-circulares-90-grados entra-un-dato-conducto" id="codos-circulares-90-grados" type="number" name="codos circulares 90 grados" pattern="^[0-9]\\d*$" placeholder="Codos 90º Uds." 
+        step="1" title="Sólo acepta números enteros">
+        <input class="codos-circulares-45-grados entra-un-dato-calderin" id="codos-circulares-45-grados" type="number" name="codos circulares 45 grados" step="1" pattern="^[0-9]\\d*$" placeholder="Codos 45º Uds." title="Sólo acepta números enteros">
+        <input class="reducciones entra-un-dato-conducto" id="reducciones" type="number" name="reducciones" placeholder="Reducciones Uds." title="Sólo acepta números enteros" pattern="/[^0-9]/g">
+        <input class="derivaciones entra-un-dato-conducto" id="derivaciones" type="number" name="derivaciones" placeholder="Derivaciones Uds." title="Sólo acepta números enteros" pattern="/[^0-9]/g">
+      </div>
+    <div class="container-valida-datos-conducto">
+        <button class="valida-datos-conducto valida-conducto" type="submit">Confirma datos</button>
+        <button class="nuevo-tramo-conducto" disabled id="nuevo-tramo" type="submit">Nuevo tramo</button> 
+        <button class="nuevo-tramo-conducto" id="reiniciar" type="button">Reiniciar</button> 
+      <div class="imprimir">
+        <a class="impresora imprimir"><svg class="imprimir" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+          <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+          <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+          </svg></a></li>
+    </div>
+      </div>
+
+      </form>
+        <div>
+          <legend class="texto-suma-resta-caidas none">Una vez terminado el diseño de la red, suma/resta caidas de presión o elimina el tramo no deseado.</legend>
+        </div>
+        <p class="obra none"></p>
+        <br>
+      <div class="tabla none">
+      <table class="table">
+        <thead class="cabecera">
+          <span id="densidad-del-aire"></span>
+          <span id="coeficiente-z"></span>
+          <span id="relacion-radio-diametro-codos-chapa-90"></span>
+          <span id="relacion-radio-diametro-codos-chapa-45"></span>
+          <span id="viscosidad-del-aire"></span>
+          <span id="reynolds"></span>
+          <span id="rugosidad-relativa"></span>
+          <span id="coeficiente-de-friccion"></span>
+          <span id="tipo-conducto-rectangular-pvc"></span>
+          <span id="diametro-equivalente"></span><!--en el caso del conducto rectangular el Diámetro equivalente calculado  -->
+          <tr>
+            <th>Tramo</th>
+            <th>Caudal</th>
+            <th>longitud</th>
+            <th>Velocidad</th>
+            <span id="velocidad-calculada"></span><!-- velocidad calculada tanto para circular como para rectangular -->
+            <span id="superficie-calculada"></span><!-- superficies calculadas para conductos rectangulares -->
+            <th id="diametro-a-rectangular">Diámetro</th>
+            <span id="diametro-nominal"></span>
+            <span id="diametro-calculado"></span>
+            <span id="diametro-interior"></span>
+            <span id="lado-menor-interior"></span>
+            <span id="lado-mayor-interior"></span>
+            <th>Codos</th>
+            <th>Codos</th>
+            <th>reducciones</th>
+            <th>derivaciones</th>
+            <!-- <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Delta;p</th> 
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Delta;p</th>  -->
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Delta;p</th> 
+            <span id="caida-de-presion-accesorios"></span>
+            <span id="caida-de-presion-lineal"></span>
+            <span id="caida-de-presion"></span>
+            <th>&nbsp;suma</th>            
+            <th>&nbsp;resta</th>
+            <th>elimina</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th id="quitar-milimetros">&nbsp;Ext./Int.</th>
+            <th>&nbsp;&nbsp;&nbsp;90º</th>
+            <th>&nbsp;&nbsp;&nbsp;45º</th>
+            <th></th>
+            <th></th>
+            <!-- <th>&nbsp;&nbsp;&nbsp;&nbsp;Acc.</th> 
+            <th>&nbsp;&nbsp;Tubería</th>  -->
+            <th>&nbsp;&nbsp;&nbsp;Total</th> 
+            <!-- <th>caidas</th>             -->
+            <!-- <th>caidas</th>
+            <th>&nbsp;tramo</th> -->
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>&nbsp;&nbsp;&nbsp;Nº</th>
+            <th>&nbsp;&nbsp;m3/h.</th>
+            <th>&nbsp;&nbsp;&nbsp;mts.</th>
+            <th>&nbsp;&nbsp;mts/sg.</th>
+            <th>&nbsp;&nbsp;&nbsp;mm.</th>
+            <th>&nbsp;&nbsp;Uds.</th>
+            <th>&nbsp;&nbsp;Uds.</th>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uds.</th>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uds.</th>
+            <th>&nbsp;&nbsp;mm.c.a.</th>
+            <!-- <th>&nbsp;&nbsp;mm.c.a.</th>
+            <th>&nbsp;&nbsp;mm.c.a.</th> -->
+            <th></th>            
+            <th></th>
+            <th></th>
+            <!-- <th></th> -->
+          </tr>
+        </thead>
+      <tbody class="tbody-resultados">
+      </tbody>
+      </table>
+      <div>      
+        <h4 id="total-caida-de-presion"></h4>
+      </div>
+      </div>
+    </section>    
+  </main>
+  <footer class="footer">
+    <h2 class="titulares">Sticky Footer</h2>
+  </footer>
+  <script src="jsconducto/index_conducto.js" type="module"></script>
+</body>
+</html>
+
+<!-- https://www.youtube.com/watch?v=OLFWcG4Xn0w -->

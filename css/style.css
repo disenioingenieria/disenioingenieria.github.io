@@ -1,0 +1,553 @@
+:root {
+  --bg-color-header: rgba(228, 228, 228, 0.89);
+  --bg-color-footer: rgba(0,0,0,.95);
+  --bg-color-main:rgba(228, 228, 228, .7);
+  --bg-color-main-fontaneria: rgba(230, 252, 253, 1);
+  --bg-color-inputs: rgba(196, 246, 249, 0.5);
+  --font: bold 90% arial black;
+  --text-color: rgba(0,0,0,.75);
+  --text-color-footer: rgba(228, 228, 228, 0.4);
+  --text-color-main: rgba(255, 255, 255,.6);
+  --container-width: 1200px;
+}
+
+html{
+  box-sizing: border-box;
+  font-size: 1em;
+  scroll-behavior: smooth;
+  font: var(--font);
+  overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  /* padding: 0; */
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 500ms ease-in-out;
+}
+
+a:hover {
+  color: red;
+  font-size: 17px;
+  opacity: .8;
+}
+
+main {
+  flex-grow: 1;
+  background-color: var(--bg-color-main);
+  /* top: 300px; */
+}
+
+.main-fontaneria {
+  background-color: var(--bg-color-main-fontaneria);
+}
+
+.cabecera-uno,
+.cabecera-uno-fontaneria {
+  padding: .5rem 0 0 0;
+  background-color: var(--bg-color-header);
+  background: linear-gradient(#f5f5f5, #e4e4e4);
+  text-align: center;
+  color: var(--text-color);
+  /* color: white; */
+  /* position: sticky;
+  top: 0; */
+}
+
+.cabecera-dos,
+.cabecera-dos-fontaneria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-color-header);
+  color: var(--text-color);
+  /* position: sticky;
+  top: 0; */
+}
+
+.footer {
+  color: var(--text-color-footer);
+  background-color: var(--bg-color-footer);
+  padding: 1rem;
+}
+
+h1 {
+  font-size: min(4.5vw);
+}
+
+.main-img,
+.main-img-fontaneria,
+.main-img-climatizacion {
+  width: 100vw;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,.5),rgba(0,0,0,.3)), url(../img/edificio_climatizacion_compressed.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.main-img-fontaneria {
+  background: linear-gradient(to bottom, rgba(0,0,0,.5),rgba(0,0,0,.3)), url(../img/grupo-presion-1-compressed.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.main-img-climatizacion {
+  background: linear-gradient(to bottom, rgba(0,0,0,.5),rgba(0,0,0,.3)), url(../img/sala_maquinas.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+
+.text-img,
+.text-img-fontaneria {
+  color:var(--text-color-main);
+  font-size: 5vw;
+}
+
+.menu-calderin li {
+  padding: 0 0 .5rem 0;
+}
+
+.menu ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0 0 .5rem 0;
+  /* background-color: var(--bg-color-header); */
+}
+
+svg {
+  margin-bottom: -.25rem;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 576px) {/*576px 36em*/
+  .cabecera-dos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cabecera-uno {
+    background: linear-gradient(#f5f5f5, #e4e4e4);
+  }
+
+  .menu li {
+    padding: 0 .5rem;
+  }
+
+  .menu ul {
+    display: flex;
+  }
+
+  h1 {
+    font-size: max(30px);
+  }
+ 
+}
+
+/* FONTANERIA */
+
+@media screen and (min-width: 768px) {/*768px 48em*/
+  .cabecera-dos-fontaneria {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cabecera-uno-fontaneria {
+    background: linear-gradient(#f5f5f5, #e4e4e4);
+
+  }
+
+  .menu li {
+    padding: 0 .5rem;
+  }
+
+  .menu ul {
+    display: flex;
+  }
+
+}
+
+/* CALDERIN */
+
+.entra-un-dato-calderin,
+.valida-datos-calderin,
+.entra-un-dato-conducto,
+.valida-datos-conducto,
+.nuevo-tramo-conducto {
+  border: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  padding-top: .8rem;
+  padding-bottom: 0;
+  padding-left: .5rem;
+  margin: .1rem;
+  border-radius: .25rem;
+  outline: none;  /*Quita el borde cuando está activo*/
+}
+
+.container-entra-un-dato,
+.container-valida-datos,
+.container-entra-un-dato-conducto,
+.container-valida-datos-conducto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 0 0;
+}
+
+.container-valida-datos-conducto {
+  flex-direction: row;
+  justify-content: center;
+  margin: .2rem;
+}
+
+.container-valida-datos-conducto button {
+  margin: 0 .2rem;
+}
+
+.container-entra-un-dato input {
+  max-width: 22rem;
+  min-width: 15rem;
+  margin: 0 0 .5rem 0;
+  background-color: var(--bg-color-main);
+}
+
+.form-calderin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 0 auto;/*Sube arriba el formulario*/
+  max-width: 900px;
+}
+
+.hidden {
+  visibility: hidden;
+  transition: all 500ms ease-in-out;
+}
+
+input:focus::placeholder{
+  color:transparent;
+ }
+
+input:hover::placeholder{
+  font-style: italic;
+  text-align: right;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;/*Elimina las flechas de los inputs number*/
+}
+
+.label-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;  /*Pone el label-options por encima de a-pantalla  */
+}
+
+legend {
+  opacity: .5;
+  font-size: 1.5rem;
+  margin: 0 0 .5rem 0;
+  text-align: center;
+}
+
+.none {
+  display: none;
+}
+
+.opacity{
+  opacity: 0;
+}
+
+.opacity-uno{
+  opacity: 1;
+  transition: opacity 1500ms ease;
+}
+
+.opacity-dos{
+  opacity:0;
+  transition: opacity 1500ms ease;
+}
+
+select {
+  font-family:var(--font);
+  font-size: 1rem;
+  border: 0;
+  background-color: var(--bg-color-main);
+  outline: none;
+}
+
+.valida-datos-calderin,
+.valida-datos-conducto,
+.nuevo-tramo-conducto {
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 1rem;
+  background-color: var(--bg-color-main);
+  /* margin: 0 0 .5rem 0; */
+  /* z-index: -5; */
+}
+
+.valida-datos-calderin:hover,
+.valida-datos-conducto:hover,
+.nuevo-tramo-conducto:hover {
+  cursor: pointer;
+  font-size: 1.3rem;
+  opacity: .5;
+  font-style: italic;
+  transition: all 500ms ease-in-out;
+}
+
+/* @media screen and (min-width: 992px) { */
+  /*992px 62em*/
+/* } */
+
+/* @media screen and (min-width: 1200px) { */
+  /*1200px 75em*/
+/* } */
+
+/* DATOS A PANTALLA CALDERIN */
+
+.a-pantalla {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 10rem;
+  left: 0;
+  right: 0;
+  padding: 3rem 0 0 0 ;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 1500ms ease;
+  transform: translate(-100%, 0);/*mueve el div*/
+  background-color: #ecebeb;
+}
+
+.a-pantalla.is-active {
+  transform: translate(0, 0);
+}
+
+.container-calcular-de-nuevo {
+  display: flex;
+  flex-direction: column;
+  margin-top: .5rem;
+}
+
+.calcular-de-nuevo {
+  margin: 0 0 1rem 0;
+  border: 0;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 1.2rem;
+  background-color: rgba(0,0,0,.4);
+  /* background-color: var(--bg-color-footer); */
+  color: rgba(0,0,0,);
+  padding: .5rem;
+  border-radius: .8rem;
+  outline: none;  /*Quita el borde cuando está activo*/
+}
+
+.container-datos-a-pantalla {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: -2rem 0 0 0;
+  /* width: 80%; */
+  /* margin: 0 auto 0 auto; */
+}
+
+
+.container-datos-a-pantalla p{
+  /* margin: 0 auto .5rem auto; */
+  margin-bottom: .8rem;
+  font-family: var(--font);
+  font-size: .9rem;
+  font-weight: 600;
+  background-color: var(--bg-color-footer);
+  background-color: rgba(0,0,0,.9);
+  color: var(--text-color-footer);  
+  color: rgb(255, 0, 0);
+  height: 2.5rem;
+  padding: 1.1rem 0 0 .5rem;
+  margin: 0 auto .25 auto;
+  border-radius: .3rem;
+  overflow-x: hidden;
+  box-shadow: -5px 8px 10px 0px rgba(0,0,0,0.5);
+}
+
+.descripcion-seleccion {
+  margin: 0 0 .25rem 0;
+  color: rgba(0, 0, 0, .6);  
+}
+
+h4 {
+  margin: 0 0 .25rem 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 320px) {
+  /*992px 62em*/
+  .container-calcular-de-nuevo {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .container-calcular-de-nuevo button{
+    margin: 0 .5rem;
+  }
+}
+
+/*IMPRIMIR*/
+
+.imprimir {
+  color: black !important;
+  /* background-color: white !important; */
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+.imprimir svg {
+  margin: 0.6rem 0 0 0; 
+}
+
+.imprimir a{
+  background-color: var(--bg-color-main);
+  padding: 0rem;/*Este padding hace que todo la superficie del enlace a funcione*/
+  z-index: 20;
+}
+
+.imprimir a:hover{
+  cursor: pointer;
+  color: red;
+}
+
+/*CONDUCTOS ENTRADA DE DATOS*/
+
+
+.conducto-selecciona {
+  text-align: center;
+  margin: .5rem 0 0 0;
+}
+
+.conducto-selecciona button {
+  border: 0;
+  background-color: var(--bg-color-main);
+  margin-top: 1rem;
+  width: 13rem;
+  height: 2.7rem;
+  font: var(--font);
+  font-size: 1rem;
+  padding: 0rem 0 .1rem .3rem;
+  text-align: left;
+}
+
+.conducto-selecciona input {
+  border: 0;
+  background-color: var(--bg-color-main);
+  padding: .8rem 0 .8rem .2rem;
+  color: var(--text-color);
+}
+
+.conducto-selecciona input::placeholder{
+  font: var(--font);
+  font-size: 1rem;
+}
+
+.container-entra-un-dato-conducto {
+  max-width: 1200px;
+}
+.container-entra-un-dato-conducto input{
+  margin: .25rem .25rem;
+}
+
+
+legend[class^="texto"]{ /*todos los elementos legend cuya clase empiece por texto*/
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+  /*992px 62em*/
+.container-entra-un-dato-conducto {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+}
+
+/* CONDUCTOS SALIDA DE DATOS */
+.tabla {
+  overflow-x: scroll;
+}
+
+table {
+  width: 90%;
+  margin: auto;
+  overflow-x: scroll;
+}
+
+table, th, td{
+  /* border-bottom: 1px lightgray solid; */
+  border-collapse: collapse;
+  /* line-height: 2.5rem; */
+  padding: 0 .5rem 0 .5rem;
+}
+
+
+th {
+  /* height: 2rem; */
+  background-color: black;
+  color: white;
+  text-align: left;
+}
+
+tr:nth-child(even){
+  background-color: white;
+  color: black;
+}
+
+tr:hover {
+  background-color: black;
+  color: white;
+}
+
+@media screen and (min-width: 992px) {/*992px 62em*/
+
+  .tabla {
+    overflow-x: hidden;
+  }
+}
+
+#total-caida-de-presion {
+  margin: .5rem 0 0 .5rem;
+}  
+
+.green {
+  background-color: greenyellow;
+}
+
